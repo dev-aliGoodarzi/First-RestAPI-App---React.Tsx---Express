@@ -1,3 +1,4 @@
+import { updateMovie } from "./_src/Routes/api/movies/update/updateMovie";
 import { moviesMainRoute } from "./_src/Routes/api/movies/moviesMainRoute";
 // Express
 import express, { Express, Request, Response } from "express";
@@ -30,7 +31,9 @@ app.post("/api/movies/new", (req: Request, res: Response) => {
   newMovie(req, res);
 });
 // Put
-app.put("api/movies/edit/:movieId", (req: Request, res: Response) => {});
+app.put("/api/movies/edit/:movieId", (req: Request, res: Response) => {
+  updateMovie(req, res);
+});
 // Delete
 // ******************************* Routes
 

@@ -26,21 +26,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports._validationSchema = void 0;
 // Yup
 const yup = __importStar(require("yup"));
-const _validationSchema = (requiredFields) => {
+// Yup
+const _validationSchema = () => {
     return yup.object({
-        id: yup.number().min(1).required(),
-        name: (requiredFields === null || requiredFields === void 0 ? void 0 : requiredFields.name)
-            ? yup.string().min(3).required()
-            : yup.string().min(3).optional(),
-        description: (requiredFields === null || requiredFields === void 0 ? void 0 : requiredFields.description)
-            ? yup.string().min(5).required()
-            : yup.string().min(5).optional(),
-        price: (requiredFields === null || requiredFields === void 0 ? void 0 : requiredFields.price)
-            ? yup.number().min(1).required()
-            : yup.number().min(1).optional(),
-        image: (requiredFields === null || requiredFields === void 0 ? void 0 : requiredFields.image)
-            ? yup.string().min(1).required()
-            : yup.string().optional(),
+        name: yup.string().min(3).required(),
+        description: yup.string().min(5).required(),
+        price: yup.number().min(1).required(),
+        image: yup.string().min(1).required(),
     });
 };
 exports._validationSchema = _validationSchema;

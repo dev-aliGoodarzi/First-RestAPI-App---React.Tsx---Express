@@ -15,18 +15,14 @@ import { requestCloserService } from "./../../../../Services/requestCloserServic
 // Services
 
 export const newMovie = (req: Request, res: Response) => {
-  const { name, price, description, image, id } = req.body;
+  const { name, price, description, image } = req.body;
 
-  const validationSchema = _validationSchema({
-    description: true,
-    image: true,
-    name: true,
-    price: true,
-  });
+  const validationSchema = _validationSchema();
 
   validationSchema.isValid(req.body).then((isValid: boolean) => {
     if (isValid) {
-      isValid && movies.push({ name, price, description, image, id });
+      isValid &&
+        movies.push({ name, price, description, image, id: Date.now() });
       requestCloserService(res);
       console.log("movies Pushed !");
       return;

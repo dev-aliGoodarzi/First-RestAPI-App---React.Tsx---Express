@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const updateMovie_1 = require("./_src/Routes/api/movies/update/updateMovie");
 const moviesMainRoute_1 = require("./_src/Routes/api/movies/moviesMainRoute");
 // Express
 const express_1 = __importDefault(require("express"));
@@ -32,7 +33,9 @@ app.post("/api/movies/new", (req, res) => {
     (0, newMovie_1.newMovie)(req, res);
 });
 // Put
-app.put("api/movies/edit/:movieId", (req, res) => { });
+app.put("/api/movies/edit/:movieId", (req, res) => {
+    (0, updateMovie_1.updateMovie)(req, res);
+});
 // Delete
 // ******************************* Routes
 const port = process.env.customPort || 3100;

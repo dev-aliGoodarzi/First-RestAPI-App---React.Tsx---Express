@@ -12,16 +12,12 @@ const _validationSchema_1 = require("./../../../../Schema/_validationSchema");
 const requestCloserService_1 = require("./../../../../Services/requestCloserService");
 // Services
 const newMovie = (req, res) => {
-    const { name, price, description, image, id } = req.body;
-    const validationSchema = (0, _validationSchema_1._validationSchema)({
-        description: true,
-        image: true,
-        name: true,
-        price: true,
-    });
+    const { name, price, description, image } = req.body;
+    const validationSchema = (0, _validationSchema_1._validationSchema)();
     validationSchema.isValid(req.body).then((isValid) => {
         if (isValid) {
-            isValid && Data_1.movies.push({ name, price, description, image, id });
+            isValid &&
+                Data_1.movies.push({ name, price, description, image, id: Date.now() });
             (0, requestCloserService_1.requestCloserService)(res);
             console.log("movies Pushed !");
             return;
