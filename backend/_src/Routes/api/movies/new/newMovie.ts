@@ -1,4 +1,3 @@
-import { requestCloser } from "./requestCloser";
 // Express
 import { Request, Response } from "express";
 // Express
@@ -6,30 +5,35 @@ import { Request, Response } from "express";
 import * as yup from "yup";
 // Third Party Modules
 // Data
-import { movies } from "../Data/Data";
-import { object } from "joi";
+import { movies } from "./../../../../Data/Data";
 // Data
+// Schemas
+import { _validationSchema } from "./../../../../Schema/_validationSchema";
+// Schemas
+// Services
+import { requestCloserService } from "./../../../../Services/requestCloserService";
+// Services
 
-export const postNewMovieService = (req: Request, res: Response) => {
+export const newMovie = (req: Request, res: Response) => {
   const { name, price, description, image, id } = req.body;
-  const validationSchema = yup.object({
-    id: yup.number().min(1).required(),
-    name: yup.string().min(3).required(),
-    description: yup.string().min(5).required(),
-    price: yup.number().min(1).required(),
-    image: yup.string().optional(),
+
+  const validationSchema = _validationSchema({
+    description: true,
+    image: true,
+    name: true,
+    price: true,
   });
 
   validationSchema.isValid(req.body).then((isValid: boolean) => {
     if (isValid) {
       isValid && movies.push({ name, price, description, image, id });
-      requestCloser(res);
+      requestCloserService(res);
       console.log("movies Pushed !");
       return;
     } else {
       res.status(400).write(JSON.stringify("err"));
       console.log("Err");
-      requestCloser(res);
+      requestCloserService(res);
       return;
     }
   });

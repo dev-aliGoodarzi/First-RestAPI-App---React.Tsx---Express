@@ -1,4 +1,4 @@
 import { Response } from "express";
-export const requestCloser = (res: Response) => {
+export const requestCloserService = (res: Response) => {
   return res.end();
 };

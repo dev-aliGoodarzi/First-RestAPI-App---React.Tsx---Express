@@ -1,10 +1,10 @@
+import { moviesMainRoute } from "./_src/Routes/api/movies/moviesMainRoute";
 // Express
 import express, { Express, Request, Response } from "express";
 // Express
 // Services
-import { sendAllMovies } from "./_src/Services/sendAllMoviesService";
-import { selectMovieByIdService } from "./_src/Services/selectMovieByIdService";
-import { postNewMovieService } from "./_src/Services/postNewMovieService";
+import { newMovie } from "./_src/Routes/api/movies/new/newMovie";
+import { selectById } from "./_src/Routes/api/movies/selectById/selectById";
 // Services
 
 // initialize The Express
@@ -20,16 +20,17 @@ app.use(express.json());
 // ******************************* Routes
 // Get
 app.get("/api/movies", (req: Request, res: Response) => {
-  sendAllMovies(req, res);
+  moviesMainRoute(req, res);
 });
 app.get("/api/movies/:movieId", (req: Request, res: Response) => {
-  selectMovieByIdService(req, res);
+  selectById(req, res);
 });
 // Post
 app.post("/api/movies/new", (req: Request, res: Response) => {
-  postNewMovieService(req, res);
+  newMovie(req, res);
 });
 // Put
+app.put("api/movies/edit/:movieId", (req: Request, res: Response) => {});
 // Delete
 // ******************************* Routes
 

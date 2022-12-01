@@ -1,15 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.selectMovieByIdService = void 0;
+exports.selectMovieByIdRoute = void 0;
 const requestCloserService_1 = require("./requestCloserService");
-// Models
+const selectMoviesByIdService_1 = require("./selectMoviesByIdService");
 // Services
-const getAllMovieService_1 = require("./getAllMovieService");
-// Services
-const selectMovieByIdService = (req, res) => {
+const selectMovieByIdRoute = (req, res) => {
     const { movieId } = req.params;
-    const movies = (0, getAllMovieService_1.getAllMovieService)();
-    const selectedMovieItem = movies.find((item) => item.id === Number(movieId));
+    const selectedMovieItem = (0, selectMoviesByIdService_1.selectMovieByIdService)();
     if (!!selectedMovieItem) {
         res.write(JSON.stringify(selectedMovieItem));
         (0, requestCloserService_1.requestCloserService)(res);
@@ -21,4 +18,4 @@ const selectMovieByIdService = (req, res) => {
         return;
     }
 };
-exports.selectMovieByIdService = selectMovieByIdService;
+exports.selectMovieByIdRoute = selectMovieByIdRoute;
