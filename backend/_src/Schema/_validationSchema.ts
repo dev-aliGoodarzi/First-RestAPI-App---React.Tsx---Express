@@ -3,10 +3,10 @@ import * as yup from "yup";
 // Yup
 
 interface _validationSchemaArgType {
-  name: boolean;
-  description: boolean;
-  price: boolean;
-  image: boolean;
+  name?: boolean;
+  description?: boolean;
+  price?: boolean;
+  image?: boolean;
 }
 export const _validationSchema = (
   requiredFields?: _validationSchemaArgType
