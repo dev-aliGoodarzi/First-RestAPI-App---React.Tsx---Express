@@ -4,6 +4,7 @@ import express, { Express, Request, Response } from "express";
 // Services
 import { sendAllMovies } from "./_src/Services/sendAllMoviesService";
 import { selectMovieByIdService } from "./_src/Services/selectMovieByIdService";
+import { postNewMovieService } from "./_src/Services/postNewMovieService";
 // Services
 
 // initialize The Express
@@ -25,6 +26,9 @@ app.get("/api/movies/:movieId", (req: Request, res: Response) => {
   selectMovieByIdService(req, res);
 });
 // Post
+app.post("/api/movies/new", (req: Request, res: Response) => {
+  postNewMovieService(req, res);
+});
 // Put
 // Delete
 // ******************************* Routes

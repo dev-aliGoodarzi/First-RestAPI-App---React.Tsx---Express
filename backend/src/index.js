@@ -9,6 +9,7 @@ const express_1 = __importDefault(require("express"));
 // Services
 const sendAllMoviesService_1 = require("./_src/Services/sendAllMoviesService");
 const selectMovieByIdService_1 = require("./_src/Services/selectMovieByIdService");
+const postNewMovieService_1 = require("./_src/Services/postNewMovieService");
 // Services
 // initialize The Express
 const app = (0, express_1.default)();
@@ -27,6 +28,9 @@ app.get("/api/movies/:movieId", (req, res) => {
     (0, selectMovieByIdService_1.selectMovieByIdService)(req, res);
 });
 // Post
+app.post("/api/movies/new", (req, res) => {
+    (0, postNewMovieService_1.postNewMovieService)(req, res);
+});
 // Put
 // Delete
 // ******************************* Routes
