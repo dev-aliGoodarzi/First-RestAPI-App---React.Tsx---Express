@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,SAAS,CAAT,IAAS;AACT,SAAS,CAAT,UAAS;AACT,SAAS,CAAT,SAAS",
     "sources": [
-        "indes.scss"
+        "index.scss"
     ],
     "names": [],
-    "file": "indes.css"
+    "file": "index.css"
 }
