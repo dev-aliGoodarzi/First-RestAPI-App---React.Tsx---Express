@@ -11,6 +11,7 @@ const express_1 = __importDefault(require("express"));
 // Services
 const newMovie_1 = require("./_src/Routes/api/movies/new/newMovie");
 const selectById_1 = require("./_src/Routes/api/movies/selectById/selectById");
+const deleteMovie_1 = require("./_src/Routes/api/movies/delete/deleteMovie");
 // Services
 // initialize The Express
 const app = (0, express_1.default)();
@@ -37,6 +38,9 @@ app.put("/api/movies/edit/:movieId", (req, res) => {
     (0, updateMovie_1.updateMovie)(req, res);
 });
 // Delete
+app.delete("/api/movies/remove/:movieId", (req, res) => {
+    (0, deleteMovie_1.deleteMovie)(req, res);
+});
 // ******************************* Routes
 const port = process.env.customPort || 3100;
 app.listen(Number(port), () => {

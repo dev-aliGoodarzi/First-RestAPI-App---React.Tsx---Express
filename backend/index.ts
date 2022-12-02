@@ -6,6 +6,7 @@ import express, { Express, Request, Response } from "express";
 // Services
 import { newMovie } from "./_src/Routes/api/movies/new/newMovie";
 import { selectById } from "./_src/Routes/api/movies/selectById/selectById";
+import { deleteMovie } from "./_src/Routes/api/movies/delete/deleteMovie";
 // Services
 
 // initialize The Express
@@ -35,6 +36,9 @@ app.put("/api/movies/edit/:movieId", (req: Request, res: Response) => {
   updateMovie(req, res);
 });
 // Delete
+app.delete("/api/movies/remove/:movieId", (req: Request, res: Response) => {
+  deleteMovie(req, res);
+});
 // ******************************* Routes
 
 const port: number | string = process.env.customPort || 3100;
