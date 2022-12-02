@@ -9,11 +9,11 @@ import { selectMoviesByIdService } from "./../../../../Services/selectMoviesById
 export const selectById = (req: Request, res: Response) => {
   const selectedMovieItem = selectMoviesByIdService(req.params.movieId);
   if (!!selectedMovieItem) {
-    res.write(JSON.stringify(selectedMovieItem));
+    res.send(JSON.stringify(selectedMovieItem));
     requestCloserService(res);
     return;
   } else {
-    res.status(404).write(JSON.stringify("Not Found"));
+    res.status(404).send(JSON.stringify("Not Found"));
     requestCloserService(res);
     return;
   }

@@ -15,11 +15,11 @@ const deleteMovie = (req, res) => {
         Data_1.movies.splice(selectedMovieIndex, selectedMovieIndex + 1);
         res
             .status(200)
-            .write(`selected Item Was be in Index ${selectedMovieIndex} & removed !`);
+            .send(`selected Item Was be in Index ${selectedMovieIndex} & removed !`);
         (0, requestCloserService_1.requestCloserService)(res);
         return;
     }
-    res.status(404).write("Selected Movie Not Found !");
+    res.status(404).send("Selected Movie Not Found !");
     (0, requestCloserService_1.requestCloserService)(res);
     return;
 };

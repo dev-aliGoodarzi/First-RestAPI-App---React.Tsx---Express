@@ -24,17 +24,17 @@ export const updateMovie = (req: Request, res: Response) => {
         allMovies[selectedMovieIndex].image = image;
         allMovies[selectedMovieIndex].price = price;
         console.log("Edited !");
-        res.write(JSON.stringify(allMovies[selectedMovieIndex]));
+        res.send(JSON.stringify(allMovies[selectedMovieIndex]));
         requestCloserService(res);
         return;
       } else {
-        res.status(400).write("Bad Request :( !");
+        res.status(400).send("Bad Request :( !");
         requestCloserService(res);
         return;
       }
     });
   } else {
-    res.status(404).write("SELECTED MOVIE NOT FOUND !");
+    res.status(404).send("SELECTED MOVIE NOT FOUND !");
     requestCloserService(res);
     return;
   }

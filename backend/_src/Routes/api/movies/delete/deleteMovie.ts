@@ -19,11 +19,11 @@ export const deleteMovie = (req: Request, res: Response) => {
 
     res
       .status(200)
-      .write(`selected Item Was be in Index ${selectedMovieIndex} & removed !`);
+      .send(`selected Item Was be in Index ${selectedMovieIndex} & removed !`);
     requestCloserService(res);
     return;
   }
-  res.status(404).write("Selected Movie Not Found !");
+  res.status(404).send("Selected Movie Not Found !");
   requestCloserService(res);
   return;
 };

@@ -23,12 +23,12 @@ export const newMovie = (req: Request, res: Response) => {
     if (isValid) {
       const newMovie = { name, price, description, image, id: Date.now() };
       isValid && movies.push(newMovie);
-      res.write(JSON.stringify(newMovie));
+      res.send(JSON.stringify(newMovie));
       requestCloserService(res);
       console.log("movies Pushed !");
       return;
     } else {
-      res.status(400).write(JSON.stringify("err"));
+      res.status(400).send(JSON.stringify("err"));
       console.log("Err");
       requestCloserService(res);
       return;

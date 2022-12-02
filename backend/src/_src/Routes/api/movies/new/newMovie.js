@@ -18,13 +18,13 @@ const newMovie = (req, res) => {
         if (isValid) {
             const newMovie = { name, price, description, image, id: Date.now() };
             isValid && Data_1.movies.push(newMovie);
-            res.write(JSON.stringify(newMovie));
+            res.send(JSON.stringify(newMovie));
             (0, requestCloserService_1.requestCloserService)(res);
             console.log("movies Pushed !");
             return;
         }
         else {
-            res.status(400).write(JSON.stringify("err"));
+            res.status(400).send(JSON.stringify("err"));
             console.log("Err");
             (0, requestCloserService_1.requestCloserService)(res);
             return;

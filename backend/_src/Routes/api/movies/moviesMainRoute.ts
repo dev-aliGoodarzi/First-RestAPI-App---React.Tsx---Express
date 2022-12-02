@@ -10,6 +10,6 @@ import { requestCloserService } from "../../../Services/requestCloserService";
 
 export const moviesMainRoute = (req: Request, res: Response) => {
   const movies = getAllMovieService();
-  res.write(JSON.stringify(movies));
+  res.send(JSON.stringify(movies));
   requestCloserService(res);
 };
