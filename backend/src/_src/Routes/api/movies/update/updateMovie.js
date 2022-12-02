@@ -22,7 +22,7 @@ const updateMovie = (req, res) => {
                 allMovies[selectedMovieIndex].image = image;
                 allMovies[selectedMovieIndex].price = price;
                 console.log("Edited !");
-                res.write("Edited Sucessfully");
+                res.write(JSON.stringify(allMovies[selectedMovieIndex]));
                 (0, requestCloserService_1.requestCloserService)(res);
                 return;
             }

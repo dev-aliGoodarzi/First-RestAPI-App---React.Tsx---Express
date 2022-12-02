@@ -24,7 +24,7 @@ export const updateMovie = (req: Request, res: Response) => {
         allMovies[selectedMovieIndex].image = image;
         allMovies[selectedMovieIndex].price = price;
         console.log("Edited !");
-        res.write("Edited Sucessfully");
+        res.write(JSON.stringify(allMovies[selectedMovieIndex]));
         requestCloserService(res);
         return;
       } else {
