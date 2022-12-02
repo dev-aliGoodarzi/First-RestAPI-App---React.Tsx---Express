@@ -4,6 +4,8 @@ exports.updateMovie = void 0;
 const requestCloserService_1 = require("./../../../../Services/requestCloserService");
 const getAllMovieService_1 = require("./../../../../Services/getAllMovieService");
 const _validationSchema_1 = require("./../../../../Schema/_validationSchema");
+// Express
+// Services
 // Services
 const updateMovie = (req, res) => {
     const { movieId } = req.params;

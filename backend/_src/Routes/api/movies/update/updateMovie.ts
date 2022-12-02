@@ -5,7 +5,6 @@ import { _validationSchema } from "./../../../../Schema/_validationSchema";
 import { Request, Response } from "express";
 // Express
 // Services
-import { selectMoviesByIdService } from "../../../../Services/selectMoviesByIdService";
 // Services
 
 export const updateMovie = (req: Request, res: Response) => {
