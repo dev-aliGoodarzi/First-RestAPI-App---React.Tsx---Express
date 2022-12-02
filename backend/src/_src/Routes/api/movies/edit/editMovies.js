@@ -9,12 +9,7 @@ const _validationSchema_1 = require("./../../../../Schema/_validationSchema");
 const requestCloserService_1 = require("./../../../../Services/requestCloserService");
 // Services
 const editMovieById = (req, res) => {
-    const validationSchema = (0, _validationSchema_1._validationSchema)({
-        description: false,
-        image: false,
-        name: false,
-        price: false,
-    });
+    const validationSchema = (0, _validationSchema_1._validationSchema)();
     const { name, id, description, price, image } = req.body;
     validationSchema.isValid(req.body).then((isValid) => {
         if (isValid) {

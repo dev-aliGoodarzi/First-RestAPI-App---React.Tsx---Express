@@ -9,12 +9,7 @@ import { requestCloserService } from "./../../../../Services/requestCloserServic
 // Services
 
 export const editMovieById = (req: Request, res: Response) => {
-  const validationSchema = _validationSchema({
-    description: false,
-    image: false,
-    name: false,
-    price: false,
-  });
+  const validationSchema = _validationSchema();
 
   const { name, id, description, price, image } = req.body;
 
