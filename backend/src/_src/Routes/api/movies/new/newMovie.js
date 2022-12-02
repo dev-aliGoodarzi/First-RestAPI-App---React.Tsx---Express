@@ -16,8 +16,9 @@ const newMovie = (req, res) => {
     const validationSchema = (0, _validationSchema_1._validationSchema)();
     validationSchema.isValid(req.body).then((isValid) => {
         if (isValid) {
-            isValid &&
-                Data_1.movies.push({ name, price, description, image, id: Date.now() });
+            const newMovie = { name, price, description, image, id: Date.now() };
+            isValid && Data_1.movies.push(newMovie);
+            res.write(JSON.stringify(newMovie));
             (0, requestCloserService_1.requestCloserService)(res);
             console.log("movies Pushed !");
             return;

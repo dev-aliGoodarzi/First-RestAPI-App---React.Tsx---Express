@@ -21,8 +21,9 @@ export const newMovie = (req: Request, res: Response) => {
 
   validationSchema.isValid(req.body).then((isValid: boolean) => {
     if (isValid) {
-      isValid &&
-        movies.push({ name, price, description, image, id: Date.now() });
+      const newMovie = { name, price, description, image, id: Date.now() };
+      isValid && movies.push(newMovie);
+      res.write(JSON.stringify(newMovie));
       requestCloserService(res);
       console.log("movies Pushed !");
       return;
