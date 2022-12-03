@@ -5,7 +5,7 @@ exports.movies = [
     {
         id: 1,
         description: "lorem some Dummy Text",
-        image: "",
+        image: "../images/img.png",
         name: "Where The Crowdeds Sing !",
         price: 99,
     },

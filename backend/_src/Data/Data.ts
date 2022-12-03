@@ -1,9 +1,12 @@
+import { Stream } from "stream";
+import { blob } from "stream/consumers";
+import { img1 } from "../images";
 import { I_Movie } from "./../Models/interface";
 export const movies: I_Movie[] = [
   {
     id: 1,
     description: "lorem some Dummy Text",
-    image: "",
+    image: "../images/img.png",
     name: "Where The Crowdeds Sing !",
     price: 99,
   },
