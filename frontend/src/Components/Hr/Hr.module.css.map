@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,WAAW;EACnB,UAAU,EAAE,eAAe;EAC3B,aAAa,EAAE,eAAe;EAE5B,UAAK,EAAE,MAAM;CAQhB;;AAdD,AAQE,KARG,CAQH,MAAM,CAAC;EACL,KAAK,EAAE,IAAI;EAET,UAAK,EAAE,MAAM;CAEhB",
+    "sources": [
+        "Hr.module.scss"
+    ],
+    "names": [],
+    "file": "Hr.module.css"
+}

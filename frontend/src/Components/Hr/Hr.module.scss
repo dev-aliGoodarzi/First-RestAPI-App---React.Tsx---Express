@@ -1,0 +1,15 @@
+.hrEl {
+  width: 100%;
+  height: max-content;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text : {
+    align: center;
+  }
+  .inner {
+    width: 100%;
+    text : {
+      align: center;
+    }
+  }
+}

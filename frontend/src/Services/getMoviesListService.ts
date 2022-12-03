@@ -1,5 +1,6 @@
 // Modules
 import axios from "axios";
+import Swal from "sweetalert2";
 // Modules
 // Models
 import { I_Movie } from "../Models/interfaces";
@@ -11,10 +12,14 @@ export const getMoviesListService = (
   return axios
     .get(fullApiURL)
     .then((res) => {
-      console.log(res.data);
+      setMovies(res.data);
       return res.data;
     })
     .catch(() => {
+      Swal.fire({
+        icon: "error",
+        title: "Error In Fetch Movies",
+      });
       return false;
     });
 };

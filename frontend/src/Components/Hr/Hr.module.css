@@ -1,0 +1,15 @@
+.hrEl {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.hrEl .inner {
+  width: 100%;
+  text-align: center;
+}
+/*# sourceMappingURL=Hr.module.css.map */
