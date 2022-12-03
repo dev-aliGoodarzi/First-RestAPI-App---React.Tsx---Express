@@ -10,7 +10,7 @@ const MovieCard: React.FunctionComponent<MovieCardProps> = ({
   data: { description, id, image, name, price },
 }) => {
   return (
-    <div className="w-1/4 h-max flex-col items-center justify-center text-center py-3 px-2">
+    <div className="w-1/5 h-max flex-col items-center justify-center text-center py-3 px-2 bg-slate-200 rounded-lg my-4 mx-2 transition-all hover:scale-105">
       <img src={image} alt="t" className="w-32 h-32" />
       <p className="text-center">{name}</p>
       <p className="text-center">{description}</p>
