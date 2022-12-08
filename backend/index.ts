@@ -7,6 +7,7 @@ import express, { Express, Request, Response } from "express";
 import { newMovie } from "./_src/Routes/api/movies/new/newMovie";
 import { selectById } from "./_src/Routes/api/movies/selectById/selectById";
 import { deleteMovie } from "./_src/Routes/api/movies/delete/deleteMovie";
+import routes from "./_src/Routes/api/movies/moviesRoute";
 // Services
 
 // initialize The Express
@@ -20,25 +21,7 @@ app.use(express.json());
 // Setting Up Middlewares
 
 // ******************************* Routes
-// Get
-app.get("/api/movies", (req: Request, res: Response) => {
-  moviesMainRoute(req, res);
-});
-app.get("/api/movies/:movieId", (req: Request, res: Response) => {
-  selectById(req, res);
-});
-// Post
-app.post("/api/movies/new", (req: Request, res: Response) => {
-  newMovie(req, res);
-});
-// Put
-app.put("/api/movies/edit/:movieId", (req: Request, res: Response) => {
-  updateMovie(req, res);
-});
-// Delete
-app.delete("/api/movies/remove/:movieId", (req: Request, res: Response) => {
-  deleteMovie(req, res);
-});
+app.use("/api/movies", routes);
 // ******************************* Routes
 
 const port: number | string = process.env.customPort || 3100;
