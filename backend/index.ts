@@ -1,14 +1,9 @@
-import { updateMovie } from "./_src/Routes/api/movies/update/updateMovie";
-import { moviesMainRoute } from "./_src/Routes/api/movies/moviesMainRoute";
 // Express
 import express, { Express, Request, Response } from "express";
 // Express
-// Services
-import { newMovie } from "./_src/Routes/api/movies/new/newMovie";
-import { selectById } from "./_src/Routes/api/movies/selectById/selectById";
-import { deleteMovie } from "./_src/Routes/api/movies/delete/deleteMovie";
-import routes from "./_src/Routes/api/movies/moviesRoute";
-// Services
+// routes
+import moviesRoutes from "./_src/Routes/api/movies/moviesRoute";
+// routes
 
 // initialize The Express
 const app: Express = express();
@@ -21,7 +16,7 @@ app.use(express.json());
 // Setting Up Middlewares
 
 // ******************************* Routes
-app.use("/api/movies", routes);
+app.use("/api/movies", moviesRoutes);
 // ******************************* Routes
 
 const port: number | string = process.env.customPort || 3100;
