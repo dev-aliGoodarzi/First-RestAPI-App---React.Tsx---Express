@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Models
 const express_1 = __importDefault(require("express"));
 const Data_1 = require("../../../Data/Data");
+const productsModel_1 = __importDefault(require("../../../Models/productsModel"));
 const _validationSchema_1 = require("../../../Schema/_validationSchema");
 // Models
 // Data
@@ -51,19 +52,19 @@ routes.delete("/remove/:movieId", (req, res) => {
     return;
 });
 routes.post("/new", (req, res) => {
-    const { name, price, description, image } = req.body;
+    const { name, price, description, tags } = req.body;
     const validationSchema = (0, _validationSchema_1._validationSchema)();
     validationSchema.isValid(req.body).then((isValid) => {
         if (isValid) {
-            const newMovie = { name, price, description, image, id: Date.now() };
-            isValid && Data_1.movies.push(newMovie);
-            res.send(JSON.stringify(newMovie));
-            (0, requestCloserService_1.requestCloserService)(res);
-            console.log("movies Pushed !");
-            return;
+            (0, productsModel_1.default)(name, price, description, tags).then(() => {
+                res.send(JSON.stringify(`${name + price + description + tags}`));
+                (0, requestCloserService_1.requestCloserService)(res);
+                console.log("movies Pushed !");
+                return;
+            });
         }
         else {
-            res.status(400).send(JSON.stringify("err"));
+            res.status(400).send(JSON.stringify("err9"));
             console.log("Err");
             (0, requestCloserService_1.requestCloserService)(res);
             return;

@@ -1,9 +1,22 @@
+console.clear();
 // Express
 import express, { Express, Request, Response } from "express";
 // Express
+//  Mongoose
+import mongoose from "mongoose";
+//  Mongoose
+// Models
+// Models
 // routes
 import moviesRoutes from "./_src/Routes/api/movies/moviesRoute";
 // routes
+
+// connect To MongoDB
+mongoose.set("strictQuery", true);
+mongoose.connect("mongodb://127.0.0.1:27017/myDB").then(() => {
+  console.log("successfully Connected TO DB");
+});
+// connect To MongoDB
 
 // initialize The Express
 const app: Express = express();

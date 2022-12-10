@@ -1,6 +1,7 @@
 // Models
 import express, { Response, Request, Router } from "express";
 import { movies } from "../../../Data/Data";
+import newMovieSubmitter from "../../../Models/productsModel";
 import { _validationSchema } from "../../../Schema/_validationSchema";
 // Models
 // Data
@@ -54,20 +55,20 @@ routes.delete("/remove/:movieId", (req: Request, res: Response) => {
 });
 
 routes.post("/new", (req: Request, res: Response) => {
-  const { name, price, description, image } = req.body;
+  const { name, price, description, tags } = req.body;
 
   const validationSchema = _validationSchema();
 
   validationSchema.isValid(req.body).then((isValid: boolean) => {
     if (isValid) {
-      const newMovie = { name, price, description, image, id: Date.now() };
-      isValid && movies.push(newMovie);
-      res.send(JSON.stringify(newMovie));
-      requestCloserService(res);
-      console.log("movies Pushed !");
-      return;
+      newMovieSubmitter(name, price, description, tags).then(() => {
+        res.send(JSON.stringify(`${name + price + description + tags}`));
+        requestCloserService(res);
+        console.log("movies Pushed !");
+        return;
+      });
     } else {
-      res.status(400).send(JSON.stringify("err"));
+      res.status(400).send(JSON.stringify("err9"));
       console.log("Err");
       requestCloserService(res);
       return;

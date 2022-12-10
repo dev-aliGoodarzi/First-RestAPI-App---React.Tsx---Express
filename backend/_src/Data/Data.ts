@@ -1,6 +1,3 @@
-import { Stream } from "stream";
-import { blob } from "stream/consumers";
-import { img1 } from "../images";
 import { I_Movie } from "./../Models/interface";
 export const movies: I_Movie[] = [
   {
