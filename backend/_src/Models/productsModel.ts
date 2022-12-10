@@ -5,7 +5,7 @@ import movieSchema from "../Schema/movieSchema";
 // Schemas
 // Schemas
 
-const movieModel = mongoose.model("MovieSchema_", movieSchema);
+export const movieModel = mongoose.model("MovieSchema_", movieSchema);
 
 const newMovieSubmitter = async (
   name: string,

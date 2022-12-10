@@ -12,15 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.movieModel = void 0;
 // Mongoose
 const mongoose_1 = __importDefault(require("mongoose"));
 const movieSchema_1 = __importDefault(require("../Schema/movieSchema"));
 // Mongoose
 // Schemas
 // Schemas
-const movieModel = mongoose_1.default.model("MovieSchema_", movieSchema_1.default);
+exports.movieModel = mongoose_1.default.model("MovieSchema_", movieSchema_1.default);
 const newMovieSubmitter = (name, price, description, tags) => __awaiter(void 0, void 0, void 0, function* () {
-    const Product = new movieModel({
+    const Product = new exports.movieModel({
         name,
         price,
         description,
