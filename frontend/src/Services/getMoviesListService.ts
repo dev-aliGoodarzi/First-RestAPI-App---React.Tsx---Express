@@ -11,7 +11,7 @@ export const getMoviesListService = (
 ): Promise<I_Movie | boolean> => {
   return axios
     .get(fullApiURL)
-    .then((res) => {
+    .then((res: any) => {
       setMovies(res.data);
       return res.data;
     })
