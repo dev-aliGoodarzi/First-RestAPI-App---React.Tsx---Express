@@ -3,7 +3,6 @@ export interface I_Movie {
   name: string;
   description: string;
   price: number | string;
-  image: any;
 }
 
 export interface userBasket {
