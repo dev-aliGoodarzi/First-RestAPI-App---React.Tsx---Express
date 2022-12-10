@@ -16,7 +16,7 @@ const routes: Router = express.Router();
 
 routes.get("/", (req: Request, res: Response) => {
   const moviesSender = async () => {
-    const movies = await getAllMovieService().then((movies) => {
+    await getAllMovieService().then((movies) => {
       res.send(JSON.stringify(movies));
       requestCloserService(res);
     });

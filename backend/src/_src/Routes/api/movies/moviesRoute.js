@@ -28,7 +28,7 @@ const selectMoviesByIdService_1 = require("../../../Services/selectMoviesByIdSer
 const routes = express_1.default.Router();
 routes.get("/", (req, res) => {
     const moviesSender = () => __awaiter(void 0, void 0, void 0, function* () {
-        const movies = yield (0, getAllMovieService_1.getAllMovieService)().then((movies) => {
+        yield (0, getAllMovieService_1.getAllMovieService)().then((movies) => {
             res.send(JSON.stringify(movies));
             (0, requestCloserService_1.requestCloserService)(res);
         });
