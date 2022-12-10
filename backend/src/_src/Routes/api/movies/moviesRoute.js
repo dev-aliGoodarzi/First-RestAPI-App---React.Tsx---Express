@@ -37,15 +37,15 @@ routes.get("/", (req, res) => {
     return;
 });
 routes.get("/:movieName", (req, res) => {
-    const selectedMovieItem = (0, selectMoviesByIdService_1.selectMoviesByIdService)(req.params.movieName).then((response) => {
-        if (!!selectedMovieItem) {
+    (0, selectMoviesByIdService_1.selectMoviesByIdService)(req.params.movieName).then((response) => {
+        if (response.length !== 0) {
             res.send(JSON.stringify(response));
             console.log("movies Found And Sent To client !");
             (0, requestCloserService_1.requestCloserService)(res);
             return;
         }
         else {
-            res.status(404).send(JSON.stringify("Not Found"));
+            res.status(404).write(JSON.stringify("Not Found"));
             console.log("no Movie Found !");
             (0, requestCloserService_1.requestCloserService)(res);
             return;
