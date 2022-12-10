@@ -1,9 +1,9 @@
+// Models
+import { movieModel } from "../Models/productsModel";
 import { I_Movie } from "./../Models/interface";
-import { getAllMovieService } from "./getAllMovieService";
-export const selectMoviesByIdService = (movieId: string): I_Movie | any => {
-  const movies = getAllMovieService();
-  const selectedMovieItem: I_Movie | any = movies.find(
-    (item) => item.id === Number(movieId)
-  );
+// Models
+
+export const selectMoviesByIdService = (movieName: string): I_Movie | any => {
+  const selectedMovieItem: I_Movie | any = movieModel.find({ name: movieName });
   return selectedMovieItem;
 };
