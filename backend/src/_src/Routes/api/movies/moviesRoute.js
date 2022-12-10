@@ -46,6 +46,7 @@ routes.get("/:movieName", (req, res) => {
         }
         else {
             res.status(404).send(JSON.stringify("Not Found"));
+            console.log("no Movie Found !");
             (0, requestCloserService_1.requestCloserService)(res);
             return;
         }
