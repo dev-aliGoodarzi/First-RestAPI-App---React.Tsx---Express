@@ -24,7 +24,7 @@ const App = () => {
       <Hr text="Welcome To My First FullStack App !" />
       <div className="flex flex-row items-center justify-between flex-wrap w-full px-2">
         {movies.map((item) => (
-          <MovieCard key={item.id} data={item} />
+          <MovieCard key={item._id} data={item} />
         ))}
       </div>
     </div>

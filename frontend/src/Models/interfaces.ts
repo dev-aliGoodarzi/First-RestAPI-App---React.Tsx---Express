@@ -1,7 +1,8 @@
 export interface I_Movie {
-  id: number;
-  description: string;
-  image: string;
+  _id: string;
   name: string;
   price: number;
+  description: string;
+  tags: string[];
+  __v: number;
 }
