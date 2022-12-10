@@ -36,18 +36,20 @@ routes.get("/", (req, res) => {
     moviesSender();
     return;
 });
-routes.get("/:id", (req, res) => {
-    const selectedMovieItem = (0, selectMoviesByIdService_1.selectMoviesByIdService)(req.params.movieId);
-    if (!!selectedMovieItem) {
-        res.send(JSON.stringify(selectedMovieItem));
-        (0, requestCloserService_1.requestCloserService)(res);
-        return;
-    }
-    else {
-        res.status(404).send(JSON.stringify("Not Found"));
-        (0, requestCloserService_1.requestCloserService)(res);
-        return;
-    }
+routes.get("/:movieName", (req, res) => {
+    const selectedMovieItem = (0, selectMoviesByIdService_1.selectMoviesByIdService)(req.params.movieName).then((response) => {
+        if (!!selectedMovieItem) {
+            res.send(JSON.stringify(response));
+            console.log("movies Found And Sent To client !");
+            (0, requestCloserService_1.requestCloserService)(res);
+            return;
+        }
+        else {
+            res.status(404).send(JSON.stringify("Not Found"));
+            (0, requestCloserService_1.requestCloserService)(res);
+            return;
+        }
+    });
 });
 routes.delete("/remove/:movieId", (req, res) => {
     const { movieId } = req.params;

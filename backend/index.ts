@@ -5,8 +5,6 @@ import express, { Express, Request, Response } from "express";
 //  Mongoose
 import mongoose from "mongoose";
 //  Mongoose
-// Models
-// Models
 // routes
 import moviesRoutes from "./_src/Routes/api/movies/moviesRoute";
 // routes

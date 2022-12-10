@@ -10,8 +10,6 @@ const express_1 = __importDefault(require("express"));
 //  Mongoose
 const mongoose_1 = __importDefault(require("mongoose"));
 //  Mongoose
-// Models
-// Models
 // routes
 const moviesRoute_1 = __importDefault(require("./_src/Routes/api/movies/moviesRoute"));
 // routes

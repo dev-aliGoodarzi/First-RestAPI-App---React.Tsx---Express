@@ -25,17 +25,21 @@ routes.get("/", (req: Request, res: Response) => {
   return;
 });
 
-routes.get("/:id", (req: Request, res: Response) => {
-  const selectedMovieItem = selectMoviesByIdService(req.params.movieId);
-  if (!!selectedMovieItem) {
-    res.send(JSON.stringify(selectedMovieItem));
-    requestCloserService(res);
-    return;
-  } else {
-    res.status(404).send(JSON.stringify("Not Found"));
-    requestCloserService(res);
-    return;
-  }
+routes.get("/:movieName", (req: Request, res: Response) => {
+  const selectedMovieItem = selectMoviesByIdService(req.params.movieName).then(
+    (response) => {
+      if (!!selectedMovieItem) {
+        res.send(JSON.stringify(response));
+        console.log("movies Found And Sent To client !");
+        requestCloserService(res);
+        return;
+      } else {
+        res.status(404).send(JSON.stringify("Not Found"));
+        requestCloserService(res);
+        return;
+      }
+    }
+  );
 });
 
 routes.delete("/remove/:movieId", (req: Request, res: Response) => {
