@@ -8,7 +8,7 @@ import { getMoviesListService } from "./Services/getMoviesListService";
 
 const App = () => {
   // Constants
-  const fullGetMoviesURL = "http://localhost:3100/api/movies";
+  const fullGetMoviesURL = "http://127.0.0.1:3100/api/movies";
   // Constants
   // State
   const [movies, SetMovies] = useState<I_Movie[]>([]);
