@@ -1,6 +1,6 @@
 console.clear();
 // Express
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 // Express
 //  Mongoose
 import mongoose from "mongoose";
